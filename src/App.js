@@ -1,22 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.css'
+import backgroundImage from './images/AldrienBackground.png';
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="h1-Aldrien">
+          <h1>aldrienvelasco.vercel.app</h1>
+        </div>
+        <p>Welcome to my personal website.</p>
+        <p>I'm a software engineer with a passion for building web applications.</p>
       </header>
     </div>
   );

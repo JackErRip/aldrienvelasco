@@ -1,38 +1,38 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-image: url('./images/AldrienBackground.png');
+  background-size: cover;
+  background-position: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.h1-Aldrien {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 11px; /* adds rounded corners */
+  border: 10px solid #f6ffd0; /* adds a border */
+  padding: 10px; /* adds some padding around the text */
+  background-color: #d6f0ff; /* adds a light gray background */
+  display: inline-block; /* makes the h1 element an inline block */
+  position: relative;
+  top: -200px;
+  color: #777777;
+}
+
+p {
+  font-size: 1.5rem;
 }
