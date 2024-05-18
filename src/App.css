@@ -5,34 +5,57 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start; /* aligns all elements to the left side of the screen */
   padding: 2rem;
 }
 
 .App-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 2rem;
 }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
+
 
 .h1-Aldrien {
-  font-size: 1.5rem;
+  font-size: 3rem; /* sets the font size */
   margin-bottom: 1rem;
-  border-radius: 11px; /* adds rounded corners */
-  border: 10px solid #f6ffd0; /* adds a border */
-  padding: 10px; /* adds some padding around the text */
-  background-color: #d6f0ff; /* adds a light gray background */
   display: inline-block; /* makes the h1 element an inline block */
-  position: relative;
-  top: -200px;
-  color: #777777;
+  text-align: left;
+  color: #686868;
 }
 
-p {
-  font-size: 1.5rem;
+.about-me {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  display: inline-block; /* makes the h1 element an inline block */
+  text-align: left; /* aligns the text to the left side of the screen */
+  color: #9b9b9b;
+}
+
+.hr-line {
+  width: 100%; /* makes the hr element as wide as the container */
+  border-top: 0px solid #ccc; /* adds a border-top */
+  position: relative;
+  left: 0; /* aligns the hr element to the left side of the screen */
+}
+
+
+
+@media (max-width: 600px) {
+ 
+
+.h1-Aldrien {
+    font-size: 1.2rem; /* sets the font size for smaller screens */
+    top: -5vh;
+  }
+
+
+
+  .about-me {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: inline-block; /* makes the h1 element an inline block */
+    text-align: left; /* aligns the text to the left side of the screen */
+    color: #9b9b9b;
+  }
 }
