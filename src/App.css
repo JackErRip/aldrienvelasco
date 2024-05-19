@@ -32,11 +32,11 @@
   color: #9b9b9b;
 }
 
-.hr-line {
+.hr-line-aboutme {
   width: 100%; /* makes the hr element as wide as the container */
   border-top: 0px solid #ccc; /* adds a border-top */
   position: relative;
-  left: 0; /* aligns the hr element to the left side of the screen */
+  bottom: 100px; /* aligns the hr element to the left side of the screen */
 }
 
 
@@ -58,4 +58,123 @@
     text-align: left; /* aligns the text to the left side of the screen */
     color: #9b9b9b;
   }
+}
+
+
+
+.connect {
+  font-size: 3rem; /* sets the font size */
+  margin-bottom: 1rem;
+  display: inline-block; /* makes the h1 element an inline block */
+  text-align: left;
+  color: #686868;
+  font-weight: bold;
+  position: relative;
+  bottom: 100px;
+}
+
+
+
+.home-button {
+  font-weight: bold;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.connect-github {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  display: inline-block; /* makes the h1 element an inline block */
+  text-align: left; /* aligns the text to the left side of the screen */
+  color: #9b9b9b;
+}
+
+
+.JackErRip {
+  font-size: 10rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  display: inline-block; /* makes the h1 element an inline block */
+  text-align: left; /* aligns the text to the left side of the screen */
+  background: linear-gradient(to bottom, #ffc400 35%, #00c3ff 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
+
+
+.Github-logo {
+  margin-bottom: 1rem;
+  
+}
+
+.github-p {
+  position: relative;
+  bottom: 40px;
+  left: 15px;
+}
+
+.x-p {
+  position: relative;
+  bottom: 215px;
+  left: 180px;
+}
+
+.connect-x {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  display: inline-block; /* makes the h1 element an inline block */
+  text-align: left; /* aligns the text to the left side of the screen */
+  color: #9b9b9b;
+}
+
+
+.x-logo {
+  margin-bottom: 1rem;
+  
+}
+
+.discord-p {
+  position: relative;
+  bottom: 415px;
+  left: 230px;
+}
+
+
+.connect-discord {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  display: inline-block; /* makes the h1 element an inline block */
+  text-align: left; /* aligns the text to the left side of the screen */
+  color: #9b9b9b;
+}
+
+.discord-logo {
+  position: relative;
+  bottom: 190px;
+  
+}
+
+.Github-connect-class {
+
+}
+
+.Twitter-connect-class {
+
+}
+
+.hr-line-connect {
+  width: 100%; /* makes the hr element as wide as the container */
+  border-top: 0px solid #ccc; /* adds a border-top */
+  position: relative;
+  bottom: 400px; /* aligns the hr element to the left side of the screen */
 }
