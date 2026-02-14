@@ -1,0 +1,453 @@
+.container {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  padding: 3rem 2rem;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 2rem 0;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--foreground-muted);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(0, 217, 255, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 217, 255, 0.1);
+  }
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--foreground);
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--foreground-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Principles Grid */
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.principleCard {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+  }
+}
+
+.principle {
+  color: var(--foreground-muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+
+  strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+}
+
+.realExample {
+  padding: 1rem;
+  background: rgba(0, 217, 255, 0.05);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--foreground-muted);
+
+  strong {
+    color: var(--accent);
+  }
+}
+
+/* Communication List */
+.communicationList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.commItem {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(10px);
+  }
+}
+
+.commNumber {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: var(--font-poppins), sans-serif;
+  min-width: 80px;
+}
+
+.commContent {
+  h3 {
+    font-size: 1.5rem;
+    color: var(--foreground);
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: var(--foreground-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.commitment {
+  padding: 1rem;
+  background: rgba(0, 255, 136, 0.05);
+  border-left: 3px solid #00ff88;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--foreground-muted);
+
+  strong {
+    color: #00ff88;
+  }
+}
+
+/* Privacy Grid */
+.privacyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.privacyCard {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--foreground-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.practices {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  li {
+    color: var(--foreground-muted);
+    padding-left: 1.5rem;
+    position: relative;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #00ff88;
+      font-weight: bold;
+    }
+  }
+}
+
+/* Misinformation Content */
+.misinfoContent {
+  .text {
+    margin-bottom: 2rem;
+  }
+}
+
+.misinfoStrategies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.misinfoItem {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--foreground-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+/* Ethics Grid */
+.ethicsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.ethicsCard {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--foreground-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.ethicsCommitment {
+  padding: 1rem;
+  background: rgba(123, 104, 238, 0.1);
+  border-left: 3px solid var(--accent-secondary);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--foreground-muted);
+
+  strong {
+    color: var(--accent-secondary);
+  }
+}
+
+/* Real World Section */
+.realWorldSection {
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+}
+
+.scenariosList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.scenario {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    margin-bottom: 1.5rem;
+  }
+}
+
+.scenarioContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wrong {
+  padding: 1rem;
+  background: rgba(255, 68, 68, 0.1);
+  border-left: 3px solid #ff4444;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--foreground-muted);
+
+  strong {
+    color: #ff4444;
+  }
+}
+
+.right {
+  padding: 1rem;
+  background: rgba(0, 255, 136, 0.1);
+  border-left: 3px solid #00ff88;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--foreground-muted);
+
+  strong {
+    color: #00ff88;
+  }
+}
+
+/* Conclusion */
+.conclusionSection {
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(123, 104, 238, 0.1) 100%);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  text-align: center;
+}
+
+.conclusionContent {
+  max-width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--foreground-muted);
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .section,
+  .realWorldSection {
+    padding: 1.5rem;
+  }
+
+  .principlesGrid,
+  .privacyGrid,
+  .misinfoStrategies,
+  .ethicsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .commItem {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .commNumber {
+    font-size: 2rem;
+    min-width: auto;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section,
+.realWorldSection,
+.conclusionSection {
+  animation: fadeInUp 0.6s ease-out;
+}

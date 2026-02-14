@@ -1,0 +1,444 @@
+.container {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  padding: 3rem 2rem;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 2rem 0;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--foreground-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Contact Section */
+.contactSection {
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.contactCard {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+  }
+}
+
+.contactIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.contactInfo {
+  margin: 1rem 0;
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--accent-secondary);
+      text-decoration: underline;
+    }
+  }
+}
+
+.contactDescription {
+  color: var(--foreground-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.responseTime {
+  padding: 0.75rem 1rem;
+  background: rgba(0, 217, 255, 0.05);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--foreground-muted);
+
+  strong {
+    color: var(--accent);
+  }
+}
+
+/* Social Section */
+.socialSection {
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--foreground);
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.socialCard {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+    transform: translateX(5px);
+    box-shadow: 0 5px 20px rgba(0, 217, 255, 0.15);
+  }
+}
+
+.socialIcon {
+  font-size: 2.5rem;
+  min-width: 50px;
+  text-align: center;
+}
+
+.socialInfo {
+  flex: 1;
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.socialDesc {
+  font-size: 0.875rem;
+  color: var(--foreground-muted);
+  line-height: 1.5;
+}
+
+/* Guidelines Section */
+.guidelinesSection {
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+}
+
+.guidelinesList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.guideline {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent);
+}
+
+.guidelineIcon {
+  font-size: 2rem;
+  min-width: 40px;
+}
+
+.guidelineContent {
+  h3 {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: var(--foreground-muted);
+    line-height: 1.7;
+    margin: 0;
+
+    strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  }
+}
+
+/* Collaboration Section */
+.collaborationSection {
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+}
+
+.interestsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.interestCard {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--foreground-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+}
+
+/* Disclaimer Section */
+.disclaimerSection {
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+  background: rgba(255, 68, 68, 0.05);
+  border: 1px solid rgba(255, 68, 68, 0.3);
+  border-radius: 20px;
+}
+
+.disclaimer {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  border-left: 4px solid #ff4444;
+
+  p {
+    color: var(--foreground-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: #ff4444;
+      font-weight: 600;
+    }
+  }
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(123, 104, 238, 0.1) 100%);
+  padding: 4rem 3rem;
+  border-radius: 20px;
+  border: 2px solid rgba(0, 217, 255, 0.3);
+  text-align: center;
+}
+
+.ctaContent {
+  max-width: 700px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--foreground-muted);
+    margin-bottom: 2.5rem;
+  }
+}
+
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  color: var(--background);
+  box-shadow: 0 5px 20px rgba(0, 217, 255, 0.3);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.5);
+  }
+}
+
+.secondaryButton {
+  background: transparent;
+  color: var(--foreground);
+  border: 2px solid var(--card-border);
+
+  &:hover {
+    border-color: var(--accent);
+    background: var(--card-bg);
+    transform: translateY(-3px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .contactSection,
+  .socialSection,
+  .guidelinesSection,
+  .collaborationSection,
+  .disclaimerSection {
+    padding: 1.5rem;
+  }
+
+  .ctaSection {
+    padding: 2rem 1.5rem;
+  }
+
+  .contactGrid,
+  .socialGrid,
+  .interestsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .guideline {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contactSection,
+.socialSection,
+.guidelinesSection,
+.collaborationSection,
+.disclaimerSection,
+.ctaSection {
+  animation: fadeInUp 0.6s ease-out;
+}
