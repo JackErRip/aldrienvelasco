@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+##This project and branch was created for the sole purpose of a Performance Task for Empower Technologies. This project will be revert back to my actual self-website after the performance task. Website was created in Nextjs by Aldrien Aquino Velasco from Grade 12 - Damascus and with some assists with Claude.
+
 ## Getting Started
 
 First, run the development server:
