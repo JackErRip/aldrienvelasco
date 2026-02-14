@@ -1,23 +1,40 @@
+'use client';
+
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import styles from './advocacy.module.scss';
+import ScrollReveal, { StaggerContainer, StaggerItem } from '../components/ScrollReveal';
 
 export default function Advocacy() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.5]);
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       <div className={styles.content}>
         {/* Hero Section */}
-        <div className={styles.hero}>
-          <div className={styles.heroTag}>My Advocacy</div>
-          <h1 className={styles.title}>
-            Quality-Driven Singleplayer & Co-op Gaming
-          </h1>
-          <p className={styles.heroSubtitle}>
-            Building games with passion and hard work, creating meaningful experiences that bring players together
-          </p>
-          <div className={styles.hashtag}>#PlayWithPurpose #CoopNotCompete</div>
-        </div>
+        <motion.div className={styles.hero} style={{ y, opacity }}>
+          <ScrollReveal direction="none" delay={0.2}>
+            <div className={styles.heroTag}>My Advocacy</div>
+            <h1 className={styles.title}>
+              Quality-Driven Singleplayer & Co-op Gaming
+            </h1>
+            <p className={styles.heroSubtitle}>
+              Building games with passion and hard work, creating meaningful experiences that bring players together
+            </p>
+            <div className={styles.hashtag}>#PlayWithPurpose #CoopNotCompete</div>
+          </ScrollReveal>
+        </motion.div>
 
         {/* The Problem */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>⚠️</span>
             The Problem: Quality Lost in the Noise
@@ -69,10 +86,12 @@ export default function Advocacy() {
               </div>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Philippine Statistics */}
-        <section className={styles.statsSection}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.statsSection}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>📊</span>
             Gaming in the Philippines: By the Numbers
@@ -118,10 +137,12 @@ export default function Advocacy() {
               <div className={styles.source}>Source: Philippine Statistics Authority 2023</div>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* The Solution */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>💡</span>
             The Solution: Quality-First Game Development
@@ -131,76 +152,120 @@ export default function Advocacy() {
             what makes gaming special—immersive stories, meaningful cooperation, and pure fun.
           </p>
           
-          <div className={styles.solutionGrid}>
-            <div className={styles.solutionCard}>
-              <div className={styles.solutionIcon}>🎮</div>
-              <h3>Story-Driven Experiences</h3>
-              <p>
-                Create singleplayer campaigns with the depth and quality of God of War or The Last of Us. 
-                Filipino gamers deserve games that move them emotionally and stay with them long after 
-                the credits roll.
-              </p>
-            </div>
+          <StaggerContainer staggerDelay={0.15} className={styles.solutionGrid}>
+            <StaggerItem>
+              <motion.div 
+                className={styles.solutionCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={styles.solutionIcon}>🎮</div>
+                <h3>Story-Driven Experiences</h3>
+                <p>
+                  Create singleplayer campaigns with the depth and quality of God of War or The Last of Us. 
+                  Filipino gamers deserve games that move them emotionally and stay with them long after 
+                  the credits roll.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.solutionCard}>
-              <div className={styles.solutionIcon}>🤝</div>
-              <h3>Co-op Over Competition</h3>
-              <p>
-                Design cooperative experiences like It Takes Two, Phasmophobia, and Split Fiction where 
-                players work together, not against each other. Replace toxicity with teamwork and friendship.
-              </p>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.solutionCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={styles.solutionIcon}>🤝</div>
+                <h3>Co-op Over Competition</h3>
+                <p>
+                  Design cooperative experiences like It Takes Two, Phasmophobia, and Split Fiction where 
+                  players work together, not against each other. Replace toxicity with teamwork and friendship.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.solutionCard}>
-              <div className={styles.solutionIcon}>💰</div>
-              <h3>Accessible Pricing</h3>
-              <p>
-                Price games fairly for the Philippine market while maintaining quality. Use regional pricing 
-                on Steam and offer LAN multiplayer options for internet cafe culture.
-              </p>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.solutionCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={styles.solutionIcon}>💰</div>
+                <h3>Accessible Pricing</h3>
+                <p>
+                  Price games fairly for the Philippine market while maintaining quality. Use regional pricing 
+                  on Steam and offer LAN multiplayer options for internet cafe culture.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.solutionCard}>
-              <div className={styles.solutionIcon}>🇵🇭</div>
-              <h3>Filipino Representation</h3>
-              <p>
-                Showcase Filipino indie developers and create games that reflect local stories and values. 
-                Build a Philippine game development community focused on quality over quantity.
-              </p>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.solutionCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={styles.solutionIcon}>🇵🇭</div>
+                <h3>Filipino Representation</h3>
+                <p>
+                  Showcase Filipino indie developers and create games that reflect local stories and values. 
+                  Build a Philippine game development community focused on quality over quantity.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.solutionCard}>
-              <div className={styles.solutionIcon}>🎯</div>
-              <h3>Passion Over Trends</h3>
-              <p>
-                Reject corporate mandates and trend-chasing. Make games we genuinely want to play, with 
-                mechanics driven by fun rather than monetization or external agendas.
-              </p>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.solutionCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={styles.solutionIcon}>🎯</div>
+                <h3>Passion Over Trends</h3>
+                <p>
+                  Reject corporate mandates and trend-chasing. Make games we genuinely want to play, with 
+                  mechanics driven by fun rather than monetization or external agendas.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.solutionCard}>
-              <div className={styles.solutionIcon}>🚫</div>
-              <h3>No Predatory Monetization</h3>
-              <p>
-                Refuse to implement microtransactions, loot boxes, pay-to-win mechanics, or aggressive 
-                cosmetic stores. Sell complete games for fair prices. Players deserve full experiences, 
-                not endless monetization schemes.
-              </p>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.solutionCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={styles.solutionIcon}>🚫</div>
+                <h3>No Predatory Monetization</h3>
+                <p>
+                  Refuse to implement microtransactions, loot boxes, pay-to-win mechanics, or aggressive 
+                  cosmetic stores. Sell complete games for fair prices. Players deserve full experiences, 
+                  not endless monetization schemes.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.solutionCard}>
-              <div className={styles.solutionIcon}>🛠️</div>
-              <h3>Community-Driven Development</h3>
-              <p>
-                Use Discord and social media to gather genuine player feedback. Create games players actually 
-                want, not what publishers think will sell.
-              </p>
-            </div>
-          </div>
-        </section>
+            <StaggerItem>
+              <motion.div 
+                className={styles.solutionCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={styles.solutionIcon}>🛠️</div>
+                <h3>Community-Driven Development</h3>
+                <p>
+                  Use Discord and social media to gather genuine player feedback. Create games players actually 
+                  want, not what publishers think will sell.
+                </p>
+              </motion.div>
+            </StaggerItem>
+          </StaggerContainer>
+          </section>
+        </ScrollReveal>
 
         {/* ICT-Based Implementation */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>⚙️</span>
             ICT-Based Solutions for Change
@@ -247,10 +312,12 @@ export default function Advocacy() {
               </p>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Building ByUnitWare Independently */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>🚀</span>
             How We Build ByUnitWare: Independence & Self-Publishing
@@ -260,62 +327,98 @@ export default function Advocacy() {
             must have the freedom to create without corporate pressure or investor interference.
           </p>
 
-          <div className={styles.independenceGrid}>
-            <div className={styles.independenceCard}>
-              <h3>🏛️ Independence First</h3>
-              <p>
-                ByUnitWare remains independent. We don&apos;t answer to shareholders obsessed with quarterly 
-                earnings or investors who want to dictate creative decisions. Our games are made the way 
-                we want—driven by vision, passion, and player respect, not profit margins.
-              </p>
-            </div>
+          <StaggerContainer staggerDelay={0.15} className={styles.independenceGrid}>
+            <StaggerItem>
+              <motion.div 
+                className={styles.independenceCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>🏛️ Independence First</h3>
+                <p>
+                  ByUnitWare remains independent. We don&apos;t answer to shareholders obsessed with quarterly 
+                  earnings or investors who want to dictate creative decisions. Our games are made the way 
+                  we want—driven by vision, passion, and player respect, not profit margins.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.independenceCard}>
-              <h3>📦 Self-Publishing</h3>
-              <p>
-                We publish directly through Steam, PlayStation Network, and other platforms ourselves. 
-                This gives us full creative control over pricing, distribution, and game content. We can 
-                refuse predatory monetization schemes and maintain our values without a publisher forcing 
-                their agenda.
-              </p>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.independenceCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>📦 Self-Publishing</h3>
+                <p>
+                  We publish directly through Steam, PlayStation Network, and other platforms ourselves. 
+                  This gives us full creative control over pricing, distribution, and game content. We can 
+                  refuse predatory monetization schemes and maintain our values without a publisher forcing 
+                  their agenda.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.independenceCard}>
-              <h3>💰 Open to Aligned Partners</h3>
-              <p>
-                We&apos;re not against investment—we&apos;re against the <em>wrong</em> investment. If an investor 
-                comes along who genuinely aligns with our vision, respects creative freedom, and doesn&apos;t seek 
-                ownership or control, we&apos;d listen. But we won&apos;t compromise our core values for funding.
-              </p>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.independenceCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>💰 Open to Aligned Partners</h3>
+                <p>
+                  We&apos;re not against investment—we&apos;re against the <em>wrong</em> investment. If an investor 
+                  comes along who genuinely aligns with our vision, respects creative freedom, and doesn&apos;t seek 
+                  ownership or control, we&apos;d listen. But we won&apos;t compromise our core values for funding.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.independenceCard}>
-              <h3>⚖️ Vision Over Scale</h3>
-              <p>
-                We&apos;d rather make three amazing games than thirty mediocre ones. Growth for growth&apos;s sake 
-                destroys studios. Our goal is to create unforgettable experiences that players remember for 
-                years, not to become a massive corporation shipping content endlessly.
-              </p>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.independenceCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>⚖️ Vision Over Scale</h3>
+                <p>
+                  We&apos;d rather make three amazing games than thirty mediocre ones. Growth for growth&apos;s sake 
+                  destroys studios. Our goal is to create unforgettable experiences that players remember for 
+                  years, not to become a massive corporation shipping content endlessly.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.independenceCard}>
-              <h3>🎮 Full Creative Authority</h3>
-              <p>
-                Every design decision, every line of dialogue, every mechanic—these come from us. We make 
-                games we genuinely want to play. No focus groups ruining art. No producers forcing trends. 
-                No executives killing creative ideas to fit predicted market trends.
-              </p>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.independenceCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>🎮 Full Creative Authority</h3>
+                <p>
+                  Every design decision, every line of dialogue, every mechanic—these come from us. We make 
+                  games we genuinely want to play. No focus groups ruining art. No producers forcing trends. 
+                  No executives killing creative ideas to fit predicted market trends.
+                </p>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.independenceCard}>
-              <h3>🇵🇭 Supporting Local Talent</h3>
-              <p>
-                By staying independent, we can hire and support Filipino developers on our own terms. 
-                We&apos;re building a studio that values people, not just extracting maximum productivity 
-                for shareholder returns.
-              </p>
-            </div>
-          </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.independenceCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>🇵🇭 Supporting Local Talent</h3>
+                <p>
+                  By staying independent, we can hire and support Filipino developers on our own terms. 
+                  We&apos;re building a studio that values people, not just extracting maximum productivity 
+                  for shareholder returns.
+                </p>
+              </motion.div>
+            </StaggerItem>
+          </StaggerContainer>
 
           <div className={styles.philosophyBlocks}>
             <div className={styles.philosophyBlock}>
@@ -347,10 +450,12 @@ export default function Advocacy() {
               </ul>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Call to Action */}
-        <section className={styles.ctaSection}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.ctaSection}>
           <div className={styles.ctaContent}>
             <h2 className={styles.ctaTitle}>Join the Movement</h2>
             <p className={styles.ctaText}>
@@ -372,57 +477,90 @@ export default function Advocacy() {
               </p>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* What You Can Do */}
-        <section className={styles.actionSection}>
-          <h2 className={styles.sectionTitle}>
-            <span className={styles.icon}>✊</span>
-            How You Can Help
-          </h2>
-          <div className={styles.actionGrid}>
-            <div className={styles.actionCard}>
-              <h3>Support Filipino Indie Developers</h3>
-              <p>
-                Buy games from local studios. Wishlist indie titles on Steam. Share Filipino-made games 
-                with your gaming communities.
-              </p>
-            </div>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.actionSection}>
+            <h2 className={styles.sectionTitle}>
+              <span className={styles.icon}>✊</span>
+              How You Can Help
+            </h2>
+            <StaggerContainer staggerDelay={0.15} className={styles.actionGrid}>
+              <StaggerItem>
+                <motion.div 
+                  className={styles.actionCard}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3>Support Filipino Indie Developers</h3>
+                  <p>
+                    Buy games from local studios. Wishlist indie titles on Steam. Share Filipino-made games 
+                    with your gaming communities.
+                  </p>
+                </motion.div>
+              </StaggerItem>
 
-            <div className={styles.actionCard}>
-              <h3>Choose Co-op Over Competitive</h3>
-              <p>
-                Play cooperative games with friends. Build gaming communities focused on fun and teamwork 
-                rather than ranks and toxicity.
-              </p>
-            </div>
+              <StaggerItem>
+                <motion.div 
+                  className={styles.actionCard}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3>Choose Co-op Over Competitive</h3>
+                  <p>
+                    Play cooperative games with friends. Build gaming communities focused on fun and teamwork 
+                    rather than ranks and toxicity.
+                  </p>
+                </motion.div>
+              </StaggerItem>
 
-            <div className={styles.actionCard}>
-              <h3>Demand Quality, Not Trends</h3>
-              <p>
-                Vote with your wallet. Support games built with passion and hard work. Reject cash-grabs 
-                and trend-chasing publishers.
-              </p>
-            </div>
+              <StaggerItem>
+                <motion.div 
+                  className={styles.actionCard}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3>Demand Quality, Not Trends</h3>
+                  <p>
+                    Vote with your wallet. Support games built with passion and hard work. Reject cash-grabs 
+                    and trend-chasing publishers.
+                  </p>
+                </motion.div>
+              </StaggerItem>
 
-            <div className={styles.actionCard}>
-              <h3>Reject Predatory Monetization</h3>
-              <p>
-                Refuse games with pay-to-win mechanics, aggressive microtransactions, loot boxes, and 
-                cosmetic-focused monetization. Support studios that sell complete games, not endless DLC 
-                and battle passes.
-              </p>
-            </div>
+              <StaggerItem>
+                <motion.div 
+                  className={styles.actionCard}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3>Reject Predatory Monetization</h3>
+                  <p>
+                    Refuse games with pay-to-win mechanics, aggressive microtransactions, loot boxes, and 
+                    cosmetic-focused monetization. Support studios that sell complete games, not endless DLC 
+                    and battle passes.
+                  </p>
+                </motion.div>
+              </StaggerItem>
 
-            <div className={styles.actionCard}>
-              <h3>Spread the Word</h3>
-              <p>
-                Share this message. Use #PlayWithPurpose when posting about quality gaming. Help build 
-                a culture that values substance over hype.
-              </p>
-            </div>
-          </div>
-        </section>
+              <StaggerItem>
+                <motion.div 
+                  className={styles.actionCard}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3>Spread the Word</h3>
+                  <p>
+                    Share this message. Use #PlayWithPurpose when posting about quality gaming. Help build 
+                    a culture that values substance over hype.
+                  </p>
+                </motion.div>
+              </StaggerItem>
+            </StaggerContainer>
+          </section>
+        </ScrollReveal>
       </div>
     </div>
   );

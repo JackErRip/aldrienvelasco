@@ -1,19 +1,36 @@
+'use client';
+
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import styles from './ict-in-gamedev.module.scss';
+import ScrollReveal, { StaggerContainer, StaggerItem } from '../components/ScrollReveal';
 
 export default function ICTInGameDev() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.5]);
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       <div className={styles.content}>
         {/* Header */}
-        <div className={styles.header}>
-          <h1 className={styles.title}>ICT in Game Development</h1>
-          <p className={styles.subtitle}>
-            How Information and Communication Technology Powers Modern Game Creation
-          </p>
-        </div>
+        <motion.div className={styles.header} style={{ y, opacity }}>
+          <ScrollReveal direction="none" delay={0.2}>
+            <h1 className={styles.title}>ICT in Game Development</h1>
+            <p className={styles.subtitle}>
+              How Information and Communication Technology Powers Modern Game Creation
+            </p>
+          </ScrollReveal>
+        </motion.div>
 
         {/* Introduction */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>💻</span>
             The Digital Foundation of Game Development
@@ -24,117 +41,153 @@ export default function ICTInGameDev() {
             writing the first line of code to distributing finished games on Steam and PlayStation Network, 
             technology enables every step of the creative process.
           </p>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Game Engines */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>🎮</span>
             Game Engines: The Core Development Tools
           </h2>
-          <div className={styles.toolGrid}>
-            <div className={styles.toolCard}>
-              <div className={styles.toolHeader}>
-                <h3>Unreal Engine 4 and 5</h3>
-                <span className={styles.badge}>Primary Engine</span>
-              </div>
-              <p>
-                Industry-leading engine for creating stunning story-driven experiences. Used for building immersive 
-                singleplayer campaigns and co-op adventures with photorealistic graphics and advanced physics.
-              </p>
-              <div className={styles.features}>
-                <span className={styles.feature}>• Nanite virtualized geometry</span>
-                <span className={styles.feature}>• Lumen global illumination</span>
-                <span className={styles.feature}>• C++ scripting</span>
-                <span className={styles.feature}>• Blueprint visual scripting</span>
-                <span className={styles.feature}>• Built-in multiplayer framework</span>
-              </div>
-            </div>
+          <StaggerContainer staggerDelay={0.15} className={styles.toolGrid}>
+            <StaggerItem>
+              <motion.div 
+                className={styles.toolCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={styles.toolHeader}>
+                  <h3>Unreal Engine 4 and 5</h3>
+                  <span className={styles.badge}>Primary Engine</span>
+                </div>
+                <p>
+                  Industry-leading engine for creating stunning story-driven experiences. Used for building immersive 
+                  singleplayer campaigns and co-op adventures with photorealistic graphics and advanced physics.
+                </p>
+                <div className={styles.features}>
+                  <span className={styles.feature}>• Nanite virtualized geometry</span>
+                  <span className={styles.feature}>• Lumen global illumination</span>
+                  <span className={styles.feature}>• C++ scripting</span>
+                  <span className={styles.feature}>• Blueprint visual scripting</span>
+                  <span className={styles.feature}>• Built-in multiplayer framework</span>
+                </div>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.toolCard}>
-              <div className={styles.toolHeader}>
-                <h3>Unity Engine</h3>
-                <span className={styles.badge}>Alternative</span>
-              </div>
-              <p>
-                Versatile engine perfect for cross-platform development. Excellent for prototyping game mechanics 
-                and testing co-op networking features before full production.
-              </p>
-              <div className={styles.features}>
-                <span className={styles.feature}>• Cross-platform deployment</span>
-                <span className={styles.feature}>• Netcode for GameObjects</span>
-                <span className={styles.feature}>• Asset Store ecosystem</span>
-                <span className={styles.feature}>• C# scripting</span>
-              </div>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.toolCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={styles.toolHeader}>
+                  <h3>Unity Engine</h3>
+                  <span className={styles.badge}>Alternative</span>
+                </div>
+                <p>
+                  Versatile engine perfect for cross-platform development. Excellent for prototyping game mechanics 
+                  and testing co-op networking features before full production.
+                </p>
+                <div className={styles.features}>
+                  <span className={styles.feature}>• Cross-platform deployment</span>
+                  <span className={styles.feature}>• Netcode for GameObjects</span>
+                  <span className={styles.feature}>• Asset Store ecosystem</span>
+                  <span className={styles.feature}>• C# scripting</span>
+                </div>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.toolCard}>
-              <div className={styles.toolHeader}>
-                <h3>Godot Engine</h3>
-                <span className={styles.badge}>Open Source</span>
-              </div>
-              <p>
-                Free and open-source engine ideal for indie developers. Great for experimenting with game ideas 
-                without licensing costs, perfect for the indie game dev community.
-              </p>
-              <div className={styles.features}>
-                <span className={styles.feature}>• Completely free</span>
-                <span className={styles.feature}>• Lightweight and fast</span>
-                <span className={styles.feature}>• GDScript scripting</span>
-                <span className={styles.feature}>• Active community</span>
-              </div>
-            </div>
-          </div>
-        </section>
+            <StaggerItem>
+              <motion.div 
+                className={styles.toolCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={styles.toolHeader}>
+                  <h3>Godot Engine</h3>
+                  <span className={styles.badge}>Open Source</span>
+                </div>
+                <p>
+                  Free and open-source engine ideal for indie developers. Great for experimenting with game ideas 
+                  without licensing costs, perfect for the indie game dev community.
+                </p>
+                <div className={styles.features}>
+                  <span className={styles.feature}>• Completely free</span>
+                  <span className={styles.feature}>• Lightweight and fast</span>
+                  <span className={styles.feature}>• GDScript scripting</span>
+                  <span className={styles.feature}>• Active community</span>
+                </div>
+              </motion.div>
+            </StaggerItem>
+          </StaggerContainer>
+          </section>
+        </ScrollReveal>
 
         {/* Digital Distribution */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>🌐</span>
             Digital Distribution Platforms
           </h2>
-          <div className={styles.platformGrid}>
-            <div className={styles.platformCard}>
-              <h3>Steam (PC Gaming)</h3>
-              <p>
-                Primary distribution platform for PC games. Steam&apos;s infrastructure handles game downloads, 
-                updates, achievements, cloud saves, and community features. Essential for reaching the global 
-                PC gaming market.
-              </p>
-              <div className={styles.stats}>
-                <div className={styles.stat}>
-                  <span className={styles.statNumber}>120M+</span>
-                  <span className={styles.statLabel}>Monthly Active Users</span>
+          <StaggerContainer staggerDelay={0.15} className={styles.platformGrid}>
+            <StaggerItem>
+              <motion.div 
+                className={styles.platformCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>Steam (PC Gaming)</h3>
+                <p>
+                  Primary distribution platform for PC games. Steam&apos;s infrastructure handles game downloads, 
+                  updates, achievements, cloud saves, and community features. Essential for reaching the global 
+                  PC gaming market.
+                </p>
+                <div className={styles.stats}>
+                  <div className={styles.stat}>
+                    <span className={styles.statNumber}>120M+</span>
+                    <span className={styles.statLabel}>Monthly Active Users</span>
+                  </div>
+                  <div className={styles.stat}>
+                    <span className={styles.statNumber}>70%</span>
+                    <span className={styles.statLabel}>Revenue Share to Developers</span>
+                  </div>
                 </div>
-                <div className={styles.stat}>
-                  <span className={styles.statNumber}>70%</span>
-                  <span className={styles.statLabel}>Revenue Share to Developers</span>
-                </div>
-              </div>
-            </div>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.platformCard}>
-              <h3>PlayStation Network</h3>
-              <p>
-                Sony&apos;s platform for PlayStation distribution. Provides access to console gamers who prefer 
-                story-driven experiences and co-op gameplay on dedicated gaming hardware.
-              </p>
-              <div className={styles.stats}>
-                <div className={styles.stat}>
-                  <span className={styles.statNumber}>108M+</span>
-                  <span className={styles.statLabel}>PlayStation Plus Members</span>
+            <StaggerItem>
+              <motion.div 
+                className={styles.platformCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>PlayStation Network</h3>
+                <p>
+                  Sony&apos;s platform for PlayStation distribution. Provides access to console gamers who prefer 
+                  story-driven experiences and co-op gameplay on dedicated gaming hardware.
+                </p>
+                <div className={styles.stats}>
+                  <div className={styles.stat}>
+                    <span className={styles.statNumber}>108M+</span>
+                    <span className={styles.statLabel}>PlayStation Plus Members</span>
+                  </div>
+                  <div className={styles.stat}>
+                    <span className={styles.statNumber}>Console</span>
+                    <span className={styles.statLabel}>Dedicated Hardware</span>
+                  </div>
                 </div>
-                <div className={styles.stat}>
-                  <span className={styles.statNumber}>Console</span>
-                  <span className={styles.statLabel}>Dedicated Hardware</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+              </motion.div>
+            </StaggerItem>
+          </StaggerContainer>
+          </section>
+        </ScrollReveal>
 
         {/* Development Tools */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>🛠️</span>
             Essential Development Tools
@@ -176,10 +229,12 @@ export default function ICTInGameDev() {
               </ul>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Networking Technology */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>🔗</span>
             Co-op Networking Technology
@@ -212,10 +267,12 @@ export default function ICTInGameDev() {
               </p>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Social Media Impact */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>📱</span>
             How Social Media Influences Game Development
@@ -273,10 +330,12 @@ export default function ICTInGameDev() {
               </div>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Productivity Impact */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>⚡</span>
             How ICT Improves Game Development Productivity
@@ -326,20 +385,23 @@ export default function ICTInGameDev() {
               </div>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Conclusion */}
-        <section className={styles.conclusionSection}>
-          <div className={styles.conclusionContent}>
-            <h2>ICT: The Backbone of Modern Game Development</h2>
-            <p>
-              Every aspect of creating quality singleplayer and co-op gaming experiences relies on ICT. 
-              From game engines and networking technology to distribution platforms and community building, 
-              technology enables independent studios like ByUnitWare to compete globally and create games 
-              driven by passion and hard work.
-            </p>
-          </div>
-        </section>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.conclusionSection}>
+            <div className={styles.conclusionContent}>
+              <h2>ICT: The Backbone of Modern Game Development</h2>
+              <p>
+                Every aspect of creating quality singleplayer and co-op gaming experiences relies on ICT. 
+                From game engines and networking technology to distribution platforms and community building, 
+                technology enables independent studios like ByUnitWare to compete globally and create games 
+                driven by passion and hard work.
+              </p>
+            </div>
+          </section>
+        </ScrollReveal>
       </div>
     </div>
   );

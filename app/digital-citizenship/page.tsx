@@ -1,19 +1,36 @@
+'use client';
+
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import styles from './digital-citizenship.module.scss';
+import ScrollReveal, { StaggerContainer, StaggerItem } from '../components/ScrollReveal';
 
 export default function DigitalCitizenship() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.5]);
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       <div className={styles.content}>
         {/* Header */}
-        <div className={styles.header}>
-          <h1 className={styles.title}>Digital Citizenship in Game Development</h1>
-          <p className={styles.subtitle}>
-            Ethical practices, responsible communication, and professional conduct in the digital age
-          </p>
-        </div>
+        <motion.div className={styles.header} style={{ y, opacity }}>
+          <ScrollReveal direction="none" delay={0.2}>
+            <h1 className={styles.title}>Digital Citizenship in Game Development</h1>
+            <p className={styles.subtitle}>
+              Ethical practices, responsible communication, and professional conduct in the digital age
+            </p>
+          </ScrollReveal>
+        </motion.div>
 
         {/* Introduction */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>🌐</span>
             What is Digital Citizenship for Game Developers?
@@ -28,70 +45,98 @@ export default function DigitalCitizenship() {
             misstep—data breach, dishonest marketing, toxic community behavior—can destroy years of hard work. 
             Digital citizenship isn&apos;t just moral obligation; it&apos;s survival.
           </p>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Digital Etiquette */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>💬</span>
             Digital Etiquette: Professional Communication
           </h2>
           
-          <div className={styles.principlesGrid}>
-            <div className={styles.principleCard}>
-              <h3>Respectful Community Management</h3>
-              <p className={styles.principle}>
-                <strong>Practice:</strong> Moderate Discord servers and forums with fairness. Address toxic 
-                behavior promptly but professionally. Set clear community guidelines that promote positive 
-                co-op gaming culture.
-              </p>
-              <div className={styles.realExample}>
-                <strong>Real Example:</strong> When players argue in Discord about game balance, respond 
-                calmly with data and reasoning. Ban harassment, not disagreement. Foster debate, not drama.
-              </div>
-            </div>
+          <StaggerContainer staggerDelay={0.15} className={styles.principlesGrid}>
+            <StaggerItem>
+              <motion.div 
+                className={styles.principleCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>Respectful Community Management</h3>
+                <p className={styles.principle}>
+                  <strong>Practice:</strong> Moderate Discord servers and forums with fairness. Address toxic 
+                  behavior promptly but professionally. Set clear community guidelines that promote positive 
+                  co-op gaming culture.
+                </p>
+                <div className={styles.realExample}>
+                  <strong>Real Example:</strong> When players argue in Discord about game balance, respond 
+                  calmly with data and reasoning. Ban harassment, not disagreement. Foster debate, not drama.
+                </div>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.principleCard}>
-              <h3>Constructive Criticism Handling</h3>
-              <p className={styles.principle}>
-                <strong>Practice:</strong> Accept negative feedback gracefully. Distinguish between helpful 
-                criticism and trolling. Thank players for bug reports. Don&apos;t argue with Steam reviews.
-              </p>
-              <div className={styles.realExample}>
-                <strong>Real Example:</strong> If a player criticizes co-op netcode, acknowledge the issue, 
-                explain what you&apos;re doing to fix it, and follow up when it&apos;s resolved. Build trust through 
-                accountability.
-              </div>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.principleCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>Constructive Criticism Handling</h3>
+                <p className={styles.principle}>
+                  <strong>Practice:</strong> Accept negative feedback gracefully. Distinguish between helpful 
+                  criticism and trolling. Thank players for bug reports. Don&apos;t argue with Steam reviews.
+                </p>
+                <div className={styles.realExample}>
+                  <strong>Real Example:</strong> If a player criticizes co-op netcode, acknowledge the issue, 
+                  explain what you&apos;re doing to fix it, and follow up when it&apos;s resolved. Build trust through 
+                  accountability.
+                </div>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.principleCard}>
-              <h3>Professional Social Media Conduct</h3>
-              <p className={styles.principle}>
-                <strong>Practice:</strong> Keep studio social media focused on games. Avoid political rants, 
-                personal attacks, or controversial takes. Be the professional voice players can trust.
-              </p>
-              <div className={styles.realExample}>
-                <strong>Real Example:</strong> When asked about industry drama on Twitter, redirect to game 
-                development content. Don&apos;t engage in Twitter wars or call out competitors.
-              </div>
-            </div>
+            <StaggerItem>
+              <motion.div 
+                className={styles.principleCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>Professional Social Media Conduct</h3>
+                <p className={styles.principle}>
+                  <strong>Practice:</strong> Keep studio social media focused on games. Avoid political rants, 
+                  personal attacks, or controversial takes. Be the professional voice players can trust.
+                </p>
+                <div className={styles.realExample}>
+                  <strong>Real Example:</strong> When asked about industry drama on Twitter, redirect to game 
+                  development content. Don&apos;t engage in Twitter wars or call out competitors.
+                </div>
+              </motion.div>
+            </StaggerItem>
 
-            <div className={styles.principleCard}>
-              <h3>Timely & Honest Communication</h3>
-              <p className={styles.principle}>
-                <strong>Practice:</strong> Update players about delays, bugs, and changes. Don&apos;t ghost your 
-                community. Admit mistakes. Be transparent about development challenges.
-              </p>
-              <div className={styles.realExample}>
-                <strong>Real Example:</strong> If a major update is delayed, announce it early with reasons. 
-                Players appreciate honesty more than silence or false promises.
-              </div>
-            </div>
-          </div>
-        </section>
+            <StaggerItem>
+              <motion.div 
+                className={styles.principleCard}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>Timely & Honest Communication</h3>
+                <p className={styles.principle}>
+                  <strong>Practice:</strong> Update players about delays, bugs, and changes. Don&apos;t ghost your 
+                  community. Admit mistakes. Be transparent about development challenges.
+                </p>
+                <div className={styles.realExample}>
+                  <strong>Real Example:</strong> If a major update is delayed, announce it early with reasons. 
+                  Players appreciate honesty more than silence or false promises.
+                </div>
+              </motion.div>
+            </StaggerItem>
+          </StaggerContainer>
+          </section>
+        </ScrollReveal>
 
         {/* Responsible Communication */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>📢</span>
             Responsible Communication with Players
@@ -159,10 +204,12 @@ export default function DigitalCitizenship() {
               </div>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Data Privacy */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>🔐</span>
             Data Privacy & Security Protection
@@ -211,10 +258,12 @@ export default function DigitalCitizenship() {
               </ul>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Avoiding Misinformation */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>✅</span>
             Combating Misinformation & Fake News
@@ -260,10 +309,12 @@ export default function DigitalCitizenship() {
               </div>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Ethical Content Creation */}
-        <section className={styles.section}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.section}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>🎨</span>
             Ethical Content Creation
@@ -318,10 +369,12 @@ export default function DigitalCitizenship() {
               </div>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Real-World Applications */}
-        <section className={styles.realWorldSection}>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.realWorldSection}>
           <h2 className={styles.sectionTitle}>
             <span className={styles.icon}>🎯</span>
             Real-World Digital Citizenship in Action
@@ -384,24 +437,27 @@ export default function DigitalCitizenship() {
               </div>
             </div>
           </div>
-        </section>
+          </section>
+        </ScrollReveal>
 
         {/* Conclusion */}
-        <section className={styles.conclusionSection}>
-          <div className={styles.conclusionContent}>
-            <h2>Digital Citizenship as Competitive Advantage</h2>
-            <p>
-              Being ethical isn&apos;t just morally right—it&apos;s smart business. Players reward honesty with loyalty. 
-              Communities built on respect last longer than those built on hype. Studios with strong digital 
-              citizenship survive controversies that destroy less principled competitors.
-            </p>
-            <p>
-              At ByUnitWare, digital citizenship means creating games with integrity, communicating with 
-              transparency, protecting player data, and building communities based on mutual respect. This is 
-              how we compete in the digital age—not by cutting corners, but by earning trust.
-            </p>
-          </div>
-        </section>
+        <ScrollReveal direction="up" delay={0.1}>
+          <section className={styles.conclusionSection}>
+            <div className={styles.conclusionContent}>
+              <h2>Digital Citizenship as Competitive Advantage</h2>
+              <p>
+                Being ethical isn&apos;t just morally right—it&apos;s smart business. Players reward honesty with loyalty. 
+                Communities built on respect last longer than those built on hype. Studios with strong digital 
+                citizenship survive controversies that destroy less principled competitors.
+              </p>
+              <p>
+                At ByUnitWare, digital citizenship means creating games with integrity, communicating with 
+                transparency, protecting player data, and building communities based on mutual respect. This is 
+                how we compete in the digital age—not by cutting corners, but by earning trust.
+              </p>
+            </div>
+          </section>
+        </ScrollReveal>
       </div>
     </div>
   );
